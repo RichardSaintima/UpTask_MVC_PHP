@@ -1,0 +1,125 @@
+@use'base/variables' as v;
+@use'base/mixins' as m;
+
+
+@media (prefers-color-scheme: dark) {
+    $grisOscuro: #22222d;
+    body {
+        background-color: $grisOscuro;
+    }
+
+    .tagline,
+    .formulario label,
+    .login .acciones a,
+    .crear .acciones a,
+    .olvide .acciones a {
+        color: v.$blanco;
+    }
+
+    .descripcion-pagina,
+    .formulario .campo input,
+    .nombre-pagina {
+        color: darken(v.$grisclaro, 15%);
+    }
+
+    .formulario .campo input {
+        background-color: lighten( $grisOscuro, 25% );
+        &::placeholder {
+            color: darken(v.$grisclaro, 30%);
+        }
+    }
+
+    .alerta.error {
+        background-color: v.$blanco;
+    }
+
+
+    .sidebar {
+        @include m.tablet {
+            background-color: darken($grisOscuro, 5%);
+        }
+        .sidebar-nav a {
+            &.activo,
+            &:hover {
+                background-color: v.$naranja;
+            }
+        }
+    }
+
+    .barra-mobile,
+    .barra {
+        background-color: darken($grisOscuro, 7%);
+    }
+    .barra {
+        p {
+            color: v.$naranja;
+            span {
+                color: v.$grisclaro;
+            }
+        }
+        .cerrar-sesion {
+            @include m.boton(v.$naranja, v.$blanco);
+            padding: 1rem;
+            font-size: 1.2rem;
+        }
+    }
+
+    .filtros {
+        background-color: lighten($grisOscuro, 10%);
+        h2,
+        label {
+            color: v.$blanco;
+        }
+        input[type="radio"] {
+            accent-color: v.$naranja;
+        }
+    }
+
+    .dashboard {
+        background-color: $grisOscuro;
+
+        .enlace {
+            color: v.$grisclaro;
+            &:hover {
+                color: darken(v.$grisclaro, 20%);
+            }
+        }
+        .formulario input:not([type=submit]) {
+            background-color: lighten( $grisOscuro, 20%);
+            color: v.$blanco;
+            &::placeholder {
+                color: darken(v.$grisclaro, 30%);
+            }
+        }
+    }
+
+    .listado-proyectos .proyectos {
+        background-color: lighten($grisOscuro, 20%);
+        &:hover {
+            background-color: lighten($grisOscuro, 15%);
+        }
+    }
+    .listado-tareas .tarea {
+        background-color: lighten($grisOscuro, 10%);
+        border: none;
+        p {
+            color: v.$grisclaro;
+        }
+    }
+
+    .modal .formulario {
+        background-color: $grisOscuro;
+        input[type="text"] {
+            background-color: lighten( $grisOscuro, 20%);
+            border: none;
+            color: v.$blanco;
+            &::placeholder {
+                color: darken(v.$grisclaro, 20%);
+            }
+        }
+        
+        legend {
+            color: v.$grisclaro;
+        }
+    }
+}
